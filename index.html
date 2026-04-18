@@ -3,177 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEE HUAILIN | Portfolio</title>
+    <title>LEE HUAILIN | Kinematics & Code</title>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #1d1d1f;
-            --secondary: #86868b;
-            --accent: #0066cc;
-            --card-bg: #f5f5f7;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        [data-theme="dark"] {
-            --bg: #000000;
-            --text: #f5f5f7;
-            --secondary: #a1a1a6;
-            --accent: #2997ff;
-            --card-bg: #1c1c1e;
+            --bg: #fff;
+            --text: #000;
+            --sub: #888;
+            --accent: #333;
+            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            transition: var(--transition);
-            line-height: 1.5;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background: var(--bg); color: var(--text); 
+            line-height: 1.4; letter-spacing: -0.01em; 
+            overflow-x: hidden;
         }
 
-        /* 顶部导航 */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 30px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 100; background: rgba(var(--bg), 0.8); backdrop-filter: blur(10px);
+        /* 动态画布容器 */
+        #kinetic-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 60vh;
+            z-index: -1; opacity: 0.1; /* 极淡，高级感 */
         }
-        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+
+        /* 导航 */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 40px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; mix-blend-mode: difference; /* 文字在不同背景下反色 */
+        }
+        .logo { font-weight: 700; font-size: 1.1rem; }
+        .nav-links { display: flex; gap: 30px; list-style: none; font-size: 0.9rem; }
+        .nav-links a { color: var(--text); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover { color: var(--sub); }
 
         /* 内容容器 */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 5%; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 8%; }
 
-        /* Hero 部分 */
-        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
-        .hero p { font-size: 1.5rem; color: var(--secondary); max-width: 600px; }
-
-        /* 互动技能标签 */
-        .skills { margin: 40px 0; display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag {
-            padding: 8px 20px; border-radius: 20px; background: var(--card-bg);
-            font-size: 0.9rem; cursor: pointer; transition: var(--transition);
-            border: 1px solid transparent;
+        /* Hero */
+        .hero {
+            height: 90vh; display: flex; flex-direction: column; justify-content: center;
+            position: relative;
         }
-        .skill-tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+        .hero h1 { font-size: clamp(3rem, 12vw, 6rem); font-weight: 700; line-height: 1; margin-bottom: 20px; }
+        .hero p { font-size: 1.5rem; color: var(--sub); max-width: 500px; }
 
-        /* 项目网格 */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 100px 0; }
-        .project-card {
-            background: var(--card-bg); padding: 40px; border-radius: 28px;
-            text-decoration: none; color: inherit; transition: var(--transition);
-            display: flex; flex-direction: column; justify-content: space-between;
-            min-height: 300px; opacity: 0; transform: translateY(30px);
-        }
-        .project-card.visible { opacity: 1; transform: translateY(0); }
-        .project-card:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .project-card h3 { font-size: 1.8rem; margin-bottom: 10px; }
-        .project-card p { color: var(--secondary); font-size: 1rem; }
+        /* 通用滚动出现样式 */
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* 主题切换按钮 */
-        .theme-toggle {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 50px; height: 50px; border-radius: 25px;
-            background: var(--text); color: var(--bg);
-            border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 1000;
-        }
+        /* 区块 */
+        section { padding: 100px 0; }
+        h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--sub); margin-bottom: 50px; }
 
-        /* 响应式 */
+        /* 技能/核心能力 */
+        .capabilities { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .cap-item h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+        .cap-item p { color: var(--sub); font-size: 0.95rem; }
+
+        /* 项目板块 */
+        .project-item { display: flex; align-items: flex-start; margin-bottom: 80px; gap: 40px; }
+        .project-year { font-size: 0.9rem; color: var(--sub); width: 80px; flex-shrink: 0; padding-top: 5px;}
+        .project-info h3 { font-size: 1.8rem; font-weight: 600; margin-bottom: 15px; }
+        .project-info p { color: var(--sub); max-width: 600px; }
+
+        /* 底部 */
+        footer { padding: 80px 0; border-top: 1px solid #eee; text-align: center; color: var(--sub); font-size: 0.9rem; }
+        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; }
+        .footer-links a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
         @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 4rem; }
+            .project-item { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    <canvas id="kinetic-container"></canvas>
 
     <nav>
-        <div class="logo">LEE HUAILIN</div>
-        <div style="color: var(--secondary); font-size: 0.9rem;">Mechanical Engineering @ PolyU</div>
+        <div class="logo">LH.</div>
+        <ul class="nav-links">
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#exchange">Experience</a></li>
+            <li><a href="#connect">Connect</a></li>
+        </ul>
     </nav>
 
     <div class="container">
         <section class="hero">
-            <h1>Create.<br>Engine.<br>Innovate.</h1>
-            <p>我是 Lee，一名专注于机器人工程与智能制造的开发者。擅长用代码赋予机械生命。</p>
-            <div class="skills">
-                <span class="skill-tag">ROS / PID</span>
-                <span class="skill-tag">Python (OOP)</span>
-                <span class="skill-tag">SolidWorks</span>
-                <span class="skill-tag">C++ / Arduino</span>
-                <span class="skill-tag">NTU Exchange</span>
+            <h1>Engineering.<br>Design.<br>Algorithms.</h1>
+            <p>Lee Huailin，专注于机器人动力学与控制系统开发的工程师。致力于将精确的数学模型转化为可靠的物理运动。</p>
+        </section>
+
+        <section id="projects" class="reveal">
+            <h2>/ Key Works</h2>
+            
+            <div class="project-item">
+                <div class="project-year">Present</div>
+                <div class="project-info">
+                    <h3>PolyU Robocon 2026</h3>
+                    <p>机器人系统架构设计与运动控制。负责多自由度机械臂的运动学建模（IK）、基于 PID 和传感器融合的高精度定位算法开发。</p>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-year">2024</div>
+                <div class="project-info">
+                    <h3>3D Vector Engine (Python)</h3>
+                    <p>一个专注于空间几何运算的 Python OOP 库。实现了高效的 3D 向量、矩阵变换及方位角计算，用于加速控制算法仿真。</p>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-year">2023</div>
+                <div class="project-info">
+                    <h3>Smart Valve Control</h3>
+                    <p>嵌入式智能水阀系统。集成了实时流量监测和基于自定义节水算法的闭环控制硬件，实现工业级自动化管理。</p>
+                </div>
             </div>
         </section>
 
-        <div class="grid">
-            <a href="#" class="project-card">
-                <div>
-                    <h3>Robocon 2026</h3>
-                    <p>机器人模块化设计与高精度控制算法。专注于传感器融合与实时系统优化。</p>
+        <section id="exchange" class="reveal">
+            <h2>/ Capabilities</h2>
+            <div class="capabilities">
+                <div class="cap-item">
+                    <h3>Dynamics & Control</h3>
+                    <p>运动学分析、PID 控制、传感器融合、实时系统优化。</p>
                 </div>
-                <div style="font-weight: 600; color: var(--accent);">Learn More →</div>
-            </a>
-
-            <a href="#" class="project-card">
-                <div>
-                    <h3>Smart Valve</h3>
-                    <p>面向工业自动化的智能流量控制阀门。集成了实时显示与节能算法。</p>
+                <div class="cap-item">
+                    <h3>Embedded & Code</h3>
+                    <p>Python (OOP), C++, ROS, Arduino, Matlab/NumPy。</p>
                 </div>
-                <div style="font-weight: 600; color: var(--accent);">View Details →</div>
-            </a>
-
-            <a href="#" class="project-card">
-                <div>
-                    <h3>3D Vector Engine</h3>
-                    <p>纯 Python 实现的 3D 向量运算库，支持复杂的空间坐标变换与幅值计算。</p>
+                <div class="cap-item">
+                    <h3>Future Outlook</h3>
+                    <p>即将前往南洋理工大学 (NTU, 2026) 进行学期交换，探索先进机器人学。</p>
                 </div>
-                <div style="font-weight: 600; color: var(--accent);">GitHub Repo →</div>
-            </a>
+            </div>
+        </section>
 
-            <a href="#" class="project-card">
-                <div>
-                    <h3>Feature Article</h3>
-                    <p>关于香港霓虹灯文化与中银大厦建筑美学的深度视觉叙事研究。</p>
-                </div>
-                <div style="font-weight: 600; color: var(--accent);">Read Story →</div>
-            </a>
-        </div>
-
-        <footer style="margin-bottom: 100px; padding-top: 50px; border-top: 1px solid var(--card-bg);">
-            <p style="color: var(--secondary);">&copy; 2026 Lee Huailin. 保持简单，保持严谨。</p>
+        <footer id="connect" class="reveal">
+            <p>保持严谨，保持创新。</p>
+            <div class="footer-links">
+                <a href="#">GitHub</a>
+                <a href="mailto:your-email@example.com">Email</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.8rem; color: #ccc;">&copy; 2026 Lee Huailin. Modern Simplicity.</p>
         </footer>
     </div>
 
     <script>
-        // 1. 主题切换
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', targetTheme);
-        }
-
-        // 2. 滚动出现动画
-        const observerOptions = { threshold: 0.1 };
+        // 1. 滚动出现动画 (Intersection Observer)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.2 });
 
-        document.querySelectorAll('.project-card').forEach(card => {
-            observer.observe(card);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // 3. 简单的鼠标磁吸互动预览（可选，提升高级感）
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            // 可以在这里添加极细微的背景偏移效果
-        });
+
+        // 2. 动力学头部动画 (Kinetic Banner)
+        const canvas = document.getElementById('kinetic-container');
+        const ctx = canvas.getContext('2d');
+        let width, height, nodes;
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight * 0.6; // 只覆盖上半部分
+            nodes = Array.from({ length: 30 }, () => ({
+                x: Math.random() * width, y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+                radius: 1.5
+            }));
+        }
+
+        let mouse = { x: null, y: null };
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#000';
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 0.5;
+
+            nodes.forEach(node => {
+                node.x += node.vx; node.y += node.vy;
+                if (node.x < 0 || node.x > width) node.vx *= -1;
+                if (node.y < 0 || node.y > height) node.vy *= -1;
+
+                // 鼠标交互：轻微排斥
+                if (mouse.x) {
+                    let dx = mouse.x - node.x; let dy = mouse.y - node.y;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 150) {
+                        node.x -= dx * 0.01; node.y -= dy * 0.01;
+                    }
+                }
+                
+                ctx.beginPath(); ctx.arc(node.x, node.y, node.radius, 0, Math.PI*2); ctx.fill();
+            });
+
+            // 绘制连线
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    let dx = nodes[i].x - nodes[j].x; let dy = nodes[i].y - nodes[j].y;
+                    let dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 180) {
+                        ctx.globalAlpha = 1 - (dist / 180);
+                        ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
+                    }
+                }
+            }
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init(); animate();
     </script>
 </body>
 </html>
