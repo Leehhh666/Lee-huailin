@@ -1,0 +1,53 @@
+:root {
+    --bg: #0a0a0a;
+    --fg: #ffffff;
+    --accent: #3d5afe;
+    --gray: #222;
+    --text-dim: #888;
+}
+
+body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+/* 导航栏设计 */
+nav {
+    display: flex; justify-content: space-between; padding: 40px 6%;
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+}
+.logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; }
+.nav-links a { 
+    color: var(--text-dim); text-decoration: none; margin-left: 30px; 
+    font-size: 0.9rem; transition: 0.3s;
+}
+.nav-links a.active, .nav-links a:hover { color: var(--fg); text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+
+/* Hero Section */
+.hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; }
+.hero-content h1 { font-size: 8vw; line-height: 0.9; margin-bottom: 30px; }
+.accent { color: transparent; -webkit-text-stroke: 1px var(--fg); }
+.sub-text { color: var(--text-dim); max-width: 500px; font-size: 1.1rem; margin-bottom: 40px; }
+
+/* 按钮交互 */
+.btn-primary { 
+    background: var(--fg); color: var(--bg); padding: 15px 35px; 
+    text-decoration: none; font-weight: 600; border-radius: 50px; transition: 0.3s;
+}
+.btn-primary:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(61,90,254,0.4); }
+
+/* 项目展示块交互 */
+.work-container { padding: 150px 10%; }
+.project-block { 
+    display: flex; border-top: 1px solid var(--gray); padding: 60px 0;
+    transition: 0.5s; cursor: crosshair;
+}
+.project-block:hover { padding-left: 20px; background: rgba(255,255,255,0.02); }
+.project-num { width: 100px; color: var(--accent); font-family: monospace; font-size: 1.2rem; }
+.project-details h3 { font-size: 2.5rem; margin-bottom: 15px; }
+.tags { display: flex; gap: 10px; margin-top: 20px; }
+.tags span { border: 1px solid var(--gray); padding: 5px 12px; font-size: 0.7rem; border-radius: 4px; }
+
+/* 画布背景 */
+#bg-canvas { position: fixed; top: 0; left: 0; pointer-events: none; z-index: -1; }
