@@ -11,29 +11,36 @@
     <nav>
         <div class="logo">LEE<span>(polyu)</span></div>
         <div class="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="projects.html" class="active">PROJECTS</a>
-            <a href="background.html">BACKGROUND</a>
-            <a href="about.html">ABOUT</a>
-            <a href="contact.html">CONTACT</a>
+            <a href="index.html">首页</a>
+            <a href="projects.html" class="active">项目展示集</a>
+            <a href="background.html">个人背景</a>
+            <a href="about.html">关于我</a>
+            <a href="contact.html">联系我</a>
         </div>
     </nav>
     <div class="container">
         <h2 class="section-title">3D INTERACTIVE LAB</h2>
-        <div class="viewer-wrap">
-            <model-viewer src="models/robot_arm.glb" auto-rotate camera-controls shadow-intensity="2" environment-image="neutral" exposure="1"></model-viewer>
-        </div>
+        <section class="lab-card">
+            <div class="lab-info">
+                <span class="item-tag">MODEL VIEW</span>
+                <h3>robot_arm 交互展示</h3>
+                <p>实时渲染的 GLB 格式工程模型。支持鼠标旋转、缩放与视角平移。</p>
+            </div>
+            <div class="viewer-wrap">
+                <model-viewer src="models/robot_arm.glb" auto-rotate camera-controls shadow-intensity="2" environment-image="neutral" exposure="1"></model-viewer>
+            </div>
+        </section>
 
         <h2 class="section-title">ENGINEERING WORKS</h2>
         <div class="item-row">
-            <div class="item-tag">ROBOCON 2026</div>
-            <h3>Robot Control Architecture</h3>
-            <p>主导运动控制架构设计。实现多传感器融合定位，并将机械臂 IK 解算效率提升至工业级响应速度。</p>
+            <span class="item-tag">ROBOTICS / 2026</span>
+            <h3>PolyU Robocon 控制系统架构</h3>
+            <p>负责底层运动算法开发。实现高频率 PID 闭环控制与传感器融合，显著提升了机械臂在高动态环境下的稳定性。</p>
         </div>
         <div class="item-row">
-            <div class="item-tag">HARDWARE</div>
-            <h3>Modular Smart Valve</h3>
-            <p>自主研发闭环控制硬件，集成了流量监测与自动化节能逻辑，适用于高精度控制场景。</p>
+            <span class="item-tag">HARDWARE / 2024</span>
+            <h3>模块化智能节水阀门</h3>
+            <p>基于嵌入式开发。设计了集流量监测与自动控制于一体的硬件系统，有效解决了工业场景下的精准流量控制需求。</p>
         </div>
     </div>
     <script src="main.js"></script>
