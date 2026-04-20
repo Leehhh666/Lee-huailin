@@ -1,48 +1,12 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>Projects | Lee</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-</head>
-<body>
-    <canvas id="bg-canvas"></canvas>
-    <nav>
-        <div class="logo">LEE<span>(polyu)</span></div>
-        <div class="nav-links">
-            <a href="index.html">首页</a>
-            <a href="projects.html" class="active">项目展示集</a>
-            <a href="background.html">个人背景</a>
-            <a href="about.html">关于我</a>
-            <a href="contact.html">联系我</a>
-        </div>
-    </nav>
-    <div class="container">
-        <h2 class="section-title">3D INTERACTIVE LAB</h2>
-        <section class="lab-card">
-            <div class="lab-info">
-                <span class="item-tag">MODEL VIEW</span>
-                <h3>robot_arm 交互展示</h3>
-                <p>实时渲染的 GLB 格式工程模型。支持鼠标旋转、缩放与视角平移。</p>
-            </div>
-            <div class="viewer-wrap">
-                <model-viewer src="models/robot_arm.glb" auto-rotate camera-controls shadow-intensity="2" environment-image="neutral" exposure="1"></model-viewer>
-            </div>
-        </section>
-
-        <h2 class="section-title">ENGINEERING WORKS</h2>
-        <div class="item-row">
-            <span class="item-tag">ROBOTICS / 2026</span>
-            <h3>PolyU Robocon 控制系统架构</h3>
-            <p>负责底层运动算法开发。实现高频率 PID 闭环控制与传感器融合，显著提升了机械臂在高动态环境下的稳定性。</p>
-        </div>
-        <div class="item-row">
-            <span class="item-tag">HARDWARE / 2024</span>
-            <h3>模块化智能节水阀门</h3>
-            <p>基于嵌入式开发。设计了集流量监测与自动控制于一体的硬件系统，有效解决了工业场景下的精准流量控制需求。</p>
-        </div>
+<section class="container">
+    <h2 class="section-title" data-i18n="lab_title">3D 交互实验室</h2>
+    <div class="viewer-wrap">
+        <model-viewer src="models/robot_arm.glb" auto-rotate camera-controls shadow-intensity="2"></model-viewer>
     </div>
-    <script src="main.js"></script>
-</body>
-</html>
+
+    <h2 class="section-title" data-i18n="works_title">工程项目集</h2>
+    <div class="item-row">
+        <h3 data-i18n="p1_title">PolyU Robocon 运动控制架构</h3>
+        <p data-i18n="p1_desc">主导运动控制架构设计。实现多传感器融合定位，提升机械臂响应速度。</p>
+    </div>
+</section>
