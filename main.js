@@ -129,7 +129,7 @@ function initThemeSelector() {
         navRight.appendChild(wrapper);
     }
 
-    themeSelect.addEventListener('change', e => setTheme(e.target.value));
+    themeSelect.onchange = e => setTheme(e.target.value);
     setTheme(localStorage.getItem('preferredTheme') || 'light');
 }
 

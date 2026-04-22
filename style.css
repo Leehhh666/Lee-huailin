@@ -28,6 +28,21 @@ body {
     transition: background 0.35s ease, color 0.25s ease;
 }
 
+body.theme-light {
+    --bg: #f7f8fb;
+    --card: #ffffff;
+    --fg: #0f172a;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --primary: #2563eb;
+    --primary-soft: #dbeafe;
+    --metal: #94a3b8;
+    --machine: #0f766e;
+    --nav-bg: rgba(247, 248, 251, 0.85);
+    --body-overlay: radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08), transparent 40%),
+                    radial-gradient(circle at 80% 0, rgba(15, 118, 110, 0.08), transparent 45%);
+}
+
 body.theme-dark {
     --bg: #070b14;
     --card: #111827;
