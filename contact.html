@@ -5,7 +5,7 @@
     <title>Contact | Lee</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="contact-page">
     <canvas id="bg-canvas"></canvas>
     <nav>
         <div class="logo">LEE<span>(polyu)</span></div>
@@ -19,25 +19,60 @@
     </nav>
     <div class="container">
         <h2 class="section-title">GET IN TOUCH</h2>
-        <div class="c-grid">
-            <div class="c-box">
-                <small>GitHub</small>
-                <a href="https://github.com/lihuailin" target="_blank">github.com/lihuailin</a>
+        <div class="contact-shell reveal">
+            <div class="c-grid">
+                <div class="c-box">
+                    <small>GitHub</small>
+                    <a href="https://github.com/Leehhh666" target="_blank" rel="noopener noreferrer">github.com/Leehhh666</a>
+                </div>
+                <div class="c-box">
+                    <small>University Email</small>
+                    <div class="contact-line">
+                        <span id="uni-email">25097331d@connect.polyU.hk</span>
+                        <button class="copy-btn" type="button" data-copy-target="uni-email">复制</button>
+                    </div>
+                </div>
+                <div class="c-box">
+                    <small>Personal Email</small>
+                    <div class="contact-line">
+                        <span id="personal-email">2039167877@qq.com</span>
+                        <button class="copy-btn" type="button" data-copy-target="personal-email">复制</button>
+                    </div>
+                </div>
+                <div class="c-box">
+                    <small>Mobile Phone</small>
+                    <div class="contact-line">
+                        <span id="mobile-phone">+86 136 1832 2879</span>
+                        <button class="copy-btn" type="button" data-copy-target="mobile-phone">复制</button>
+                    </div>
+                </div>
             </div>
-            <div class="c-box">
-                <small>University Email</small>
-                <span>25097331d@connect.polyU.hk</span>
-            </div>
-            <div class="c-box">
-                <small>Personal Email</small>
-                <span>2039167877@qq.com</span>
-            </div>
-            <div class="c-box">
-                <small>Mobile Phone</small>
-                <span>+86 136 1832 2879</span>
-            </div>
+            <aside class="maker-panel">
+                <h3>Maker Console</h3>
+                <p id="maker-tip">系统在线：结构轻量、控制稳定、可快速迭代。</p>
+                <div class="console-actions">
+                    <button class="mini-btn" id="tip-refresh" type="button">随机灵感</button>
+                    <button class="mini-btn" id="theme-toggle" type="button">切换钢铁模式</button>
+                </div>
+                <div class="signal-group">
+                    <div class="signal-item">
+                        <span>创意电量</span>
+                        <div class="signal-bar"><i data-level="84"></i></div>
+                    </div>
+                    <div class="signal-item">
+                        <span>机械精度</span>
+                        <div class="signal-bar"><i data-level="92"></i></div>
+                    </div>
+                    <div class="signal-item">
+                        <span>执行效率</span>
+                        <div class="signal-bar"><i data-level="88"></i></div>
+                    </div>
+                </div>
+                <div class="console-status" id="console-status">状态：Ready · Maker Mode</div>
+            </aside>
         </div>
     </div>
+    <button class="floating-top" id="to-top" title="返回顶部" aria-label="返回顶部" type="button">↑</button>
     <script src="main.js"></script>
 </body>
 </html>

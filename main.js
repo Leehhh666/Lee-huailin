@@ -179,6 +179,75 @@ function initBackToTop() {
     });
 }
 
+function initContactInteractions() {
+    const page = document.querySelector('.contact-page');
+    if (!page) return;
+
+    const status = document.getElementById('console-status');
+    const tipEl = document.getElementById('maker-tip');
+    const tips = [
+        '系统在线：结构轻量、控制稳定、可快速迭代。',
+        '灵感提示：先做可运行原型，再做精细化优化。',
+        'Maker 思路：机械结构与控制参数要同步调优。',
+        '工程习惯：每次迭代只改一个关键变量，便于验证。'
+    ];
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const targetId = btn.dataset.copyTarget;
+            const target = targetId ? document.getElementById(targetId) : null;
+            if (!target) return;
+            const content = target.textContent.trim();
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(content);
+                } else {
+                    throw new Error('clipboard unavailable');
+                }
+                btn.textContent = '已复制';
+                if (status) status.textContent = `状态：Copied · ${content}`;
+            } catch (err) {
+                const textarea = document.createElement('textarea');
+                textarea.value = content;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                textarea.remove();
+                btn.textContent = '已复制';
+                if (status) status.textContent = `状态：Copied · ${content}`;
+            }
+            setTimeout(() => {
+                btn.textContent = '复制';
+            }, 1000);
+        });
+    });
+
+    const tipBtn = document.getElementById('tip-refresh');
+    if (tipBtn && tipEl) {
+        tipBtn.addEventListener('click', () => {
+            const next = tips[Math.floor(Math.random() * tips.length)];
+            tipEl.textContent = next;
+            if (status) status.textContent = '状态：Console Updated';
+        });
+    }
+
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const steel = page.classList.toggle('contact-steel');
+            themeBtn.textContent = steel ? '切回简约模式' : '切换钢铁模式';
+            if (status) status.textContent = steel ? '状态：Steel Mode Engaged' : '状态：Ready · Maker Mode';
+        });
+    }
+
+    document.querySelectorAll('.signal-bar i').forEach(line => {
+        const level = Number(line.dataset.level || 0);
+        requestAnimationFrame(() => {
+            line.style.width = `${Math.max(0, Math.min(100, level))}%`;
+        });
+    });
+}
+
 window.onload = () => {
     const savedLang = localStorage.getItem('preferredLang') || 'zh';
     const langSelect = document.getElementById('lang-select');
@@ -190,4 +259,5 @@ window.onload = () => {
     initProjectDetails();
     initScrollReveal();
     initBackToTop();
+    initContactInteractions();
 };
