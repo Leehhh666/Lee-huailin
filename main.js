@@ -95,6 +95,7 @@ const i18n = {
 };
 
 window.i18n = i18n;
+const DEFAULT_LANG = 'zh';
 
 const themeKeyMap = {
     light: 'theme_light',
@@ -103,7 +104,7 @@ const themeKeyMap = {
 };
 
 function setTheme(theme) {
-    const themeName = themeKeyMap[theme] ? theme : 'light';
+    const themeName = Object.prototype.hasOwnProperty.call(themeKeyMap, theme) ? theme : 'light';
     document.body.classList.remove('theme-light', 'theme-dark', 'theme-sunset');
     document.body.classList.add(`theme-${themeName}`);
     localStorage.setItem('preferredTheme', themeName);
@@ -114,8 +115,8 @@ function setTheme(theme) {
 function syncThemeSelectorLanguage(lang) {
     const themeSelect = document.getElementById('theme-select');
     if (!themeSelect) return;
-    const dict = i18n[lang] || i18n.zh;
-    themeSelect.setAttribute('aria-label', dict.theme_select_aria || i18n.zh.theme_select_aria);
+    const dict = i18n[lang] || i18n[DEFAULT_LANG];
+    themeSelect.setAttribute('aria-label', dict.theme_select_aria || i18n[DEFAULT_LANG].theme_select_aria);
     Array.from(themeSelect.options).forEach(option => {
         const key = themeKeyMap[option.value];
         option.textContent = (key && dict[key]) || option.value;
@@ -154,7 +155,7 @@ function initThemeSelector() {
         themeSelect.addEventListener('change', e => setTheme(e.target.value));
         themeSelect.dataset.themeBound = '1';
     }
-    syncThemeSelectorLanguage(localStorage.getItem('preferredLang') || 'zh');
+    syncThemeSelectorLanguage(localStorage.getItem('preferredLang') || DEFAULT_LANG);
     setTheme(localStorage.getItem('preferredTheme') || 'light');
 }
 
@@ -332,7 +333,7 @@ function initContactInteractions() {
 
 window.onload = () => {
     initThemeSelector();
-    const savedLang = localStorage.getItem('preferredLang') || 'zh';
+    const savedLang = localStorage.getItem('preferredLang') || DEFAULT_LANG;
     const langSelect = document.getElementById('lang-select');
     if (langSelect) {
         langSelect.value = savedLang;
