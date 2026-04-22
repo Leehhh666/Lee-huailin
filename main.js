@@ -198,35 +198,41 @@ function initContactInteractions() {
             const target = targetId ? document.getElementById(targetId) : null;
             if (!target) return;
             const content = target.textContent.trim();
+            let copied = false;
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(content);
-                } else {
-                    throw new Error('clipboard unavailable');
+                    copied = true;
                 }
-                btn.textContent = '已复制';
-                if (status) status.textContent = `状态：Copied · ${content}`;
             } catch (err) {
-                const textarea = document.createElement('textarea');
-                textarea.value = content;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                textarea.remove();
-                btn.textContent = '已复制';
-                if (status) status.textContent = `状态：Copied · ${content}`;
+                copied = false;
             }
-            setTimeout(() => {
-                btn.textContent = '复制';
-            }, 1000);
+
+            if (copied && status) {
+                status.textContent = `状态：Copied · ${content}`;
+            }
+
+            if (copied) {
+                btn.textContent = '已复制';
+                setTimeout(() => {
+                    btn.textContent = '复制';
+                }, 1000);
+            } else if (status) {
+                status.textContent = '状态：复制失败，请手动复制';
+            }
         });
     });
 
     const tipBtn = document.getElementById('tip-refresh');
     if (tipBtn && tipEl) {
+        let lastTipIndex = -1;
         tipBtn.addEventListener('click', () => {
-            const next = tips[Math.floor(Math.random() * tips.length)];
-            tipEl.textContent = next;
+            let nextIndex = Math.floor(Math.random() * tips.length);
+            if (tips.length > 1 && nextIndex === lastTipIndex) {
+                nextIndex = (nextIndex + 1) % tips.length;
+            }
+            lastTipIndex = nextIndex;
+            tipEl.textContent = tips[nextIndex];
             if (status) status.textContent = '状态：Console Updated';
         });
     }
@@ -241,7 +247,8 @@ function initContactInteractions() {
     }
 
     document.querySelectorAll('.signal-bar i').forEach(line => {
-        const level = Number(line.dataset.level || 0);
+        const rawLevel = Number(line.dataset.level);
+        const level = Number.isFinite(rawLevel) ? rawLevel : 0;
         requestAnimationFrame(() => {
             line.style.width = `${Math.max(0, Math.min(100, level))}%`;
         });

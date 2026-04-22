@@ -421,7 +421,7 @@ model-viewer {
 
 .copy-btn {
     border: 1px solid var(--line);
-    background: #fff;
+    background: var(--card);
     color: var(--muted);
     border-radius: 999px;
     padding: 5px 12px;
@@ -479,7 +479,7 @@ model-viewer {
     border-radius: 999px;
     border: 1px solid var(--line);
     overflow: hidden;
-    background: #fff;
+    background: var(--card);
 }
 
 .signal-bar i {
