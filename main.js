@@ -84,6 +84,55 @@ const i18n = {
 
 window.i18n = i18n;
 
+const themeMap = {
+    light: '简约白',
+    dark: '深色科技',
+    sunset: '暖色活力'
+};
+
+function setTheme(theme) {
+    const themeName = themeMap[theme] ? theme : 'light';
+    document.body.classList.remove('theme-light', 'theme-dark', 'theme-sunset');
+    document.body.classList.add(`theme-${themeName}`);
+    localStorage.setItem('preferredTheme', themeName);
+    const themeSelect = document.getElementById('theme-select');
+    if (themeSelect && themeSelect.value !== themeName) themeSelect.value = themeName;
+}
+
+function initThemeSelector() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    let navRight = nav.querySelector('.nav-right');
+    if (!navRight) {
+        navRight = document.createElement('div');
+        navRight.className = 'nav-right';
+        const navLinks = nav.querySelector('.nav-links');
+        if (navLinks) navRight.appendChild(navLinks);
+        nav.appendChild(navRight);
+    }
+
+    let themeSelect = document.getElementById('theme-select');
+    if (!themeSelect) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'theme-selector';
+        themeSelect = document.createElement('select');
+        themeSelect.id = 'theme-select';
+        themeSelect.setAttribute('aria-label', '风格选择');
+        Object.entries(themeMap).forEach(([value, label]) => {
+            const option = document.createElement('option');
+            option.value = value;
+            option.textContent = label;
+            themeSelect.appendChild(option);
+        });
+        wrapper.appendChild(themeSelect);
+        navRight.appendChild(wrapper);
+    }
+
+    themeSelect.addEventListener('change', e => setTheme(e.target.value));
+    setTheme(localStorage.getItem('preferredTheme') || 'light');
+}
+
 function setLanguage(lang) {
     localStorage.setItem('preferredLang', lang);
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -256,6 +305,7 @@ function initContactInteractions() {
 }
 
 window.onload = () => {
+    initThemeSelector();
     const savedLang = localStorage.getItem('preferredLang') || 'zh';
     const langSelect = document.getElementById('lang-select');
     if (langSelect) {
