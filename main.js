@@ -129,7 +129,10 @@ function initThemeSelector() {
         navRight.appendChild(wrapper);
     }
 
-    themeSelect.onchange = e => setTheme(e.target.value);
+    if (!themeSelect.dataset.themeBound) {
+        themeSelect.addEventListener('change', e => setTheme(e.target.value));
+        themeSelect.dataset.themeBound = '1';
+    }
     setTheme(localStorage.getItem('preferredTheme') || 'light');
 }
 
