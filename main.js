@@ -3,28 +3,28 @@ const i18n = {
         "nav_home": "首页", "nav_projects": "项目展示集", "nav_bg": "个人背景", "nav_about": "关于我", "nav_contact": "联系我",
         "hero_sub": ["机器人工程师.", "机械工程 @PolyU.", "2026 NTU 交换生."],
         "view_works": "浏览项目", "lab_title": "3D 交互实验室", "works_title": "工程项目集",
-        "p1_title": "PolyU Robocon 运动控制架构", "p1_desc": "主导运动控制架构设计。实现多传感器融合定位，提升机械臂响应速度。",
-        "p2_title": "模块化智能节水阀门", "p2_desc": "基于嵌入式开发。设计了集流量监测与自动控制于一体的硬件系统。",
-        "bg_title": "学术历程", "skills_title": "核心技能", "mission_title": "使命",
+        "p1_title": "PolyU Robocon 运动控制架构", "p1_desc": "在 Robocon 负责运动控制，做了多传感器融合定位，机械臂响应速度明显快了。",
+        "p2_title": "模块化智能节水阀门", "p2_desc": "用嵌入式做了套节水阀门，能自动检测流量并控制阀门，硬件系统从头设计的。",
+        "bg_title": "学术历程", "skills_title": "核心技能", "mission_title": "关于我",
         "contact_title": "即刻联络", "msg": "点击开启 3D 实验室",
-        "hero_badge": "机器人 · 机械 · 自动化",
-        "hero_desc": "聚焦机器人控制与工程落地，从机械结构到软件系统，持续打造高可用、可维护、可扩展的自动化方案。",
+        "hero_badge": "机器人 · 机械工程 · 自动化",
+        "hero_desc": "做机器人和自动化，在 PolyU 念机械工程本科。从硬件设计到控制算法，喜欢把一整套系统从头捋清楚。",
         "hero_contact": "联系我",
         "stat_1_label": "项目经验", "stat_1_value": "10+",
         "stat_2_label": "机器人方向", "stat_2_value": "3年",
         "stat_3_label": "跨校协作", "stat_3_value": "PolyU × NTU",
         "home_projects_title": "精选项目",
         "filter_all": "全部", "filter_robotics": "机器人", "filter_embedded": "嵌入式", "filter_mechatronics": "机电系统",
-        "p1_more": "负责路径规划联调、运动学参数标定与赛场容错策略设计。",
-        "p2_more": "完成传感器采样、阀门控制策略和低功耗通信逻辑的闭环验证。",
+        "p1_more": "主要负责路径规划联调和运动学标定，比赛现场的容错策略也是我设计的。",
+        "p2_more": "从传感器采样到阀门控制逻辑，包括低功耗通信，全部做了闭环验证。",
         "p3_title": "机械臂末端执行器快速迭代",
-        "p3_desc": "通过结构优化与材料替换，降低重量并提升抓取稳定性。",
-        "p3_more": "结合仿真和实测数据，缩短原型迭代周期并提升装配效率。",
+        "p3_desc": "反复迭代了几版末端执行器，换了材料、调了结构，抓取更稳，整体轻了不少。",
+        "p3_more": "结合仿真和实测数据一起看，把迭代周期压下来了，装配也顺手了很多。",
         "show_more": "展开详情",
         "show_less": "收起详情",
-        "cta_title": "寻找项目合作或技术交流？",
-        "cta_desc": "欢迎联系我，我可以快速参与从方案设计到工程实现的完整流程。",
-        "footer_note": "简洁表达，工程优先。",
+        "cta_title": "有什么项目想聊聊？",
+        "cta_desc": "不管是合作还是技术交流，发消息就好，我回复比较快。",
+        "footer_note": "动手为主，少废话。",
         "theme_select_aria": "风格选择",
         "theme_light": "简约白",
         "theme_dark": "深色科技",
@@ -34,28 +34,28 @@ const i18n = {
         "nav_home": "首頁", "nav_projects": "項目展示集", "nav_bg": "個人背景", "nav_about": "關於我", "nav_contact": "聯繫我",
         "hero_sub": ["機器人工程師.", "機械工程 @PolyU.", "2026 NTU 交換生."],
         "view_works": "瀏覽項目", "lab_title": "3D 交互實驗室", "works_title": "工程項目集",
-        "p1_title": "PolyU Robocon 運動控制架構", "p1_desc": "主導運動控制架構設計。實現多傳感器融合定位，提升機械臂響應速度。",
-        "p2_title": "模組化智能節水閥門", "p2_desc": "基於嵌入式開發。設計了集流量監測與自動控制於一體的硬件系統。",
-        "bg_title": "學術歷程", "skills_title": "核心技能", "mission_title": "使命",
+        "p1_title": "PolyU Robocon 運動控制架構", "p1_desc": "在 Robocon 負責運動控制，做了多傳感器融合定位，機械臂響應速度明顯快了。",
+        "p2_title": "模組化智能節水閥門", "p2_desc": "用嵌入式做了套節水閥門，能自動檢測流量並控制閥門，硬件系統從頭設計的。",
+        "bg_title": "學術歷程", "skills_title": "核心技能", "mission_title": "關於我",
         "contact_title": "即刻聯絡", "msg": "點擊開啟 3D 實驗室",
-        "hero_badge": "機器人 · 機械 · 自動化",
-        "hero_desc": "聚焦機器人控制與工程落地，從機械結構到軟件系統，持續打造高可用、可維護、可擴展的自動化方案。",
+        "hero_badge": "機器人 · 機械工程 · 自動化",
+        "hero_desc": "做機器人和自動化，在 PolyU 念機械工程本科。從硬件設計到控制算法，喜歡把一整套系統從頭捋清楚。",
         "hero_contact": "聯繫我",
         "stat_1_label": "項目經驗", "stat_1_value": "10+",
         "stat_2_label": "機器人方向", "stat_2_value": "3年",
         "stat_3_label": "跨校協作", "stat_3_value": "PolyU × NTU",
         "home_projects_title": "精選項目",
         "filter_all": "全部", "filter_robotics": "機器人", "filter_embedded": "嵌入式", "filter_mechatronics": "機電系統",
-        "p1_more": "負責路徑規劃聯調、運動學參數標定與賽場容錯策略設計。",
-        "p2_more": "完成傳感器採樣、閥門控制策略和低功耗通信邏輯的閉環驗證。",
+        "p1_more": "主要負責路徑規劃聯調和運動學標定，比賽現場的容錯策略也是我設計的。",
+        "p2_more": "從傳感器採樣到閥門控制邏輯，包括低功耗通信，全部做了閉環驗證。",
         "p3_title": "機械臂末端執行器快速迭代",
-        "p3_desc": "通過結構優化與材料替換，降低重量並提升抓取穩定性。",
-        "p3_more": "結合仿真和實測數據，縮短原型迭代週期並提升裝配效率。",
+        "p3_desc": "反複迭代了幾版末端執行器，換了材料、調了結構，抓取更穩，整體輕了不少。",
+        "p3_more": "結合仿真和實測數據一起看，把迭代周期壓下來了，裝配也順手了很多。",
         "show_more": "展開詳情",
         "show_less": "收起詳情",
-        "cta_title": "尋找項目合作或技術交流？",
-        "cta_desc": "歡迎聯繫我，我可以快速參與從方案設計到工程實現的完整流程。",
-        "footer_note": "簡潔表達，工程優先。",
+        "cta_title": "有什麼項目想聊聊？",
+        "cta_desc": "不管是合作還是技術交流，發消息就好，我回復比較快。",
+        "footer_note": "動手為主，少廢話。",
         "theme_select_aria": "風格選擇",
         "theme_light": "簡約白",
         "theme_dark": "深色科技",
@@ -65,28 +65,28 @@ const i18n = {
         "nav_home": "HOME", "nav_projects": "PROJECTS", "nav_bg": "BACKGROUND", "nav_about": "ABOUT", "nav_contact": "CONTACT",
         "hero_sub": ["ROBOTICS ENGINEER.", "MECHANICAL STUDENT @PolyU.", "NTU EXCHANGE 2026."],
         "view_works": "VIEW WORKS", "lab_title": "3D INTERACTIVE LAB", "works_title": "ENGINEERING WORKS",
-        "p1_title": "PolyU Robocon: Control System", "p1_desc": "Led movement control architecture. Achieved multi-sensor fusion positioning and IK optimization.",
-        "p2_title": "Modular Smart Valve", "p2_desc": "Embedded hardware design integrating flow monitoring and automated control logic.",
-        "bg_title": "ACADEMIC JOURNEY", "skills_title": "CORE SKILLS", "mission_title": "MISSION",
+        "p1_title": "PolyU Robocon: Control System", "p1_desc": "Built the motion control system for Robocon — multi-sensor fusion for positioning, arm response got noticeably faster.",
+        "p2_title": "Modular Smart Water Valve", "p2_desc": "An embedded smart valve that monitors flow and controls itself automatically. Designed the whole hardware system from scratch.",
+        "bg_title": "ACADEMIC JOURNEY", "skills_title": "CORE SKILLS", "mission_title": "ABOUT",
         "contact_title": "GET IN TOUCH", "msg": "Click to enter 3D Lab",
         "hero_badge": "Robotics · Mechanical · Automation",
-        "hero_desc": "Focused on robotics control and practical engineering delivery, from mechanical structure to software systems.",
+        "hero_desc": "Mechanical engineering student at PolyU, building robots and automation systems. I enjoy working through the full stack — from hardware design to control algorithms.",
         "hero_contact": "CONTACT ME",
         "stat_1_label": "PROJECTS", "stat_1_value": "10+",
         "stat_2_label": "ROBOTICS TRACK", "stat_2_value": "3 YEARS",
         "stat_3_label": "CAMPUS COLLAB", "stat_3_value": "PolyU × NTU",
         "home_projects_title": "FEATURED PROJECTS",
         "filter_all": "ALL", "filter_robotics": "ROBOTICS", "filter_embedded": "EMBEDDED", "filter_mechatronics": "MECHATRONICS",
-        "p1_more": "Handled path planning integration, kinematics calibration, and on-field fault-tolerance strategies.",
-        "p2_more": "Built a closed-loop prototype for sensing, valve control strategy, and low-power communication.",
-        "p3_title": "Rapid Iteration of Robot End-Effector",
-        "p3_desc": "Reduced weight and improved grasp stability through structure and material optimization.",
-        "p3_more": "Used simulation plus physical testing to shorten prototype cycles and improve assembly efficiency.",
+        "p1_more": "Handled path planning integration, kinematics calibration, and fault-tolerance strategy for competition.",
+        "p2_more": "Full closed-loop validation — sensor sampling, valve control logic, and low-power communication.",
+        "p3_title": "Robot End-Effector Iteration",
+        "p3_desc": "Went through several iterations — swapped materials, tweaked the structure. Lighter overall, grips more reliably.",
+        "p3_more": "Used simulation and physical testing together to cut down iteration cycles and make assembly easier.",
         "show_more": "SHOW DETAILS",
         "show_less": "HIDE DETAILS",
-        "cta_title": "Looking for collaboration or technical exchange?",
-        "cta_desc": "Feel free to reach out. I can quickly contribute from concept design to engineering implementation.",
-        "footer_note": "Simple expression, engineering first.",
+        "cta_title": "Interested in working together?",
+        "cta_desc": "Drop me a message — whether it's a project collab or just a technical chat, I'm happy to talk.",
+        "footer_note": "Build first, talk less.",
         "theme_select_aria": "Theme selector",
         "theme_light": "Minimal Light",
         "theme_dark": "Tech Dark",
@@ -262,10 +262,10 @@ function initContactInteractions() {
     const status = document.getElementById('console-status');
     const tipEl = document.getElementById('maker-tip');
     const tips = [
-        '系统在线：结构轻量、控制稳定、可快速迭代。',
-        '灵感提示：先做可运行原型，再做精细化优化。',
-        'Maker 思路：机械结构与控制参数要同步调优。',
-        '工程习惯：每次迭代只改一个关键变量，便于验证。'
+        '系统在线——好用就行，不用过度设计。',
+        '先跑起来，再慢慢改。能用的原型比完美的方案强。',
+        '机械和控制要一起调，分开弄容易出问题。',
+        '每次只动一个变量，不然出了问题不知道是哪里的锅。'
     ];
 
     document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -331,7 +331,33 @@ function initContactInteractions() {
     });
 }
 
+function initHamburger() {
+    const btn = document.getElementById('hamburger');
+    const links = document.querySelector('.nav-links');
+    if (!btn || !links) return;
+
+    btn.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            links.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    document.addEventListener('click', e => {
+        if (!btn.contains(e.target) && !links.contains(e.target)) {
+            links.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
 window.onload = () => {
+    initHamburger();
     initThemeSelector();
     const savedLang = localStorage.getItem('preferredLang') || DEFAULT_LANG;
     const langSelect = document.getElementById('lang-select');
