@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Lee</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -9,20 +10,30 @@
     <canvas id="bg-canvas"></canvas>
     <nav>
         <div class="logo">LEE<span>(polyu)</span></div>
-        <div class="nav-links">
-            <a href="index.html">首页</a>
-            <a href="projects.html">项目展示集</a>
-            <a href="background.html">个人背景</a>
-            <a href="about.html" class="active">关于我</a>
-            <a href="contact.html">联系我</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="projects.html">项目展示集</a>
+                <a href="background.html">个人背景</a>
+                <a href="about.html" class="active">关于我</a>
+                <a href="contact.html">联系我</a>
+            </div>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="导航菜单" aria-expanded="false" type="button">&#9776;</button>
     </nav>
     <div class="container">
-        <h2 class="section-title">MISSION</h2>
-        <h1 style="font-size: 3.2rem; margin-bottom: 30px; font-weight: 800;">Code. Build. Solve.</h1>
-        <p style="font-size: 1.25rem; color: #888; max-width: 650px; line-height: 1.8;">
-            我热衷于探索机械结构与算法的边界。我相信通过高质量的代码和严谨的工程设计，可以解决现实世界中复杂的自动化难题。目前我正致力于将 ROS 系统应用于更高效的协作机器人架构中。
+        <h2 class="section-title">ABOUT</h2>
+        <h1 style="font-size: clamp(2rem, 6vw, 3.2rem); margin-bottom: 24px; font-weight: 800;">做机器人，写代码，动手拆装。</h1>
+        <p style="font-size: 1.1rem; color: var(--muted); max-width: 650px; line-height: 1.9; margin-bottom: 20px;">
+            做机器人和机械，喜欢把理论和实际工程结合起来。平时写 ROS 比较多，也参与过不少从设计到落地的项目。目前主要在研究机器人协作控制这个方向。
         </p>
+        <p style="font-size: 1.1rem; color: var(--muted); max-width: 650px; line-height: 1.9;">
+            不太喜欢停留在文档层面——更享受把东西真正跑起来的感觉。
+        </p>
+    </div>
+    <button class="floating-top" id="to-top" title="返回顶部" aria-label="返回顶部" type="button">↑</button>
+    <div class="container" style="padding-top: 0;">
+        <div class="footer-note">动手为主，少废话。</div>
     </div>
     <script src="main.js"></script>
 </body>

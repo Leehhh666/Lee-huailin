@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEE | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,6 +15,7 @@
                 <a href="index.html" class="active" data-i18n="nav_home">首页</a>
                 <a href="projects.html" data-i18n="nav_projects">项目展示集</a>
                 <a href="background.html" data-i18n="nav_bg">个人背景</a>
+                <a href="about.html" data-i18n="nav_about">关于我</a>
                 <a href="contact.html" data-i18n="nav_contact">联系我</a>
             </div>
             <div class="lang-selector">
@@ -24,6 +26,7 @@
                 </select>
             </div>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="导航菜单" aria-expanded="false" type="button">&#9776;</button>
     </nav>
 
     <main class="container home">
@@ -32,7 +35,7 @@
             <h1>LEE HUAILIN</h1>
             <p id="typewriter" class="typewriter"></p>
             <p class="hero-desc" data-i18n="hero_desc">
-                聚焦机器人控制与工程落地，从机械结构到软件系统，持续打造高可用、可维护、可扩展的自动化方案。
+                做机器人和自动化，在 PolyU 念机械工程本科。从硬件设计到控制算法，喜欢把一整套系统从头捋清楚。
             </p>
             <div class="hero-actions">
                 <a href="projects.html" class="btn btn-primary" data-i18n="view_works">浏览项目</a>
@@ -66,21 +69,21 @@
             <div class="project-grid">
                 <article class="project-card" data-category="robotics">
                     <h3 data-i18n="p1_title">PolyU Robocon 运动控制架构</h3>
-                    <p data-i18n="p1_desc">主导运动控制架构设计。实现多传感器融合定位，提升机械臂响应速度。</p>
+                    <p data-i18n="p1_desc">在 Robocon 负责运动控制，做了多传感器融合定位，机械臂响应速度明显快了。</p>
                     <button class="mini-btn detail-toggle" data-i18n="show_more">展开详情</button>
-                    <div class="project-extra" data-i18n="p1_more">负责路径规划联调、运动学参数标定与赛场容错策略设计。</div>
+                    <div class="project-extra" data-i18n="p1_more">主要负责路径规划联调和运动学标定，比赛现场的容错策略也是我设计的。</div>
                 </article>
                 <article class="project-card" data-category="embedded">
                     <h3 data-i18n="p2_title">模块化智能节水阀门</h3>
-                    <p data-i18n="p2_desc">基于嵌入式开发。设计了集流量监测与自动控制于一体的硬件系统。</p>
+                    <p data-i18n="p2_desc">用嵌入式做了套节水阀门，能自动检测流量并控制阀门，硬件系统从头设计的。</p>
                     <button class="mini-btn detail-toggle" data-i18n="show_more">展开详情</button>
-                    <div class="project-extra" data-i18n="p2_more">完成传感器采样、阀门控制策略和低功耗通信逻辑的闭环验证。</div>
+                    <div class="project-extra" data-i18n="p2_more">从传感器采样到阀门控制逻辑，包括低功耗通信，全部做了闭环验证。</div>
                 </article>
                 <article class="project-card" data-category="mechatronics">
                     <h3 data-i18n="p3_title">机械臂末端执行器快速迭代</h3>
-                    <p data-i18n="p3_desc">通过结构优化与材料替换，降低重量并提升抓取稳定性。</p>
+                    <p data-i18n="p3_desc">反复迭代了几版末端执行器，换了材料、调了结构，抓取更稳，整体轻了不少。</p>
                     <button class="mini-btn detail-toggle" data-i18n="show_more">展开详情</button>
-                    <div class="project-extra" data-i18n="p3_more">结合仿真和实测数据，缩短原型迭代周期并提升装配效率。</div>
+                    <div class="project-extra" data-i18n="p3_more">结合仿真和实测数据一起看，把迭代周期压下来了，装配也顺手了很多。</div>
                 </article>
             </div>
         </section>
@@ -97,8 +100,8 @@
         </section>
 
         <section class="cta reveal">
-            <h2 data-i18n="cta_title">寻找项目合作或技术交流？</h2>
-            <p data-i18n="cta_desc">欢迎联系我，我可以快速参与从方案设计到工程实现的完整流程。</p>
+            <h2 data-i18n="cta_title">有什么项目想聊聊？</h2>
+            <p data-i18n="cta_desc">不管是合作还是技术交流，发消息就好，我回复比较快。</p>
             <a href="contact.html" class="btn btn-primary" data-i18n="contact_title">即刻联络</a>
         </section>
     </main>
@@ -108,7 +111,7 @@
     </button>
 
     <div class="container" style="padding-top: 0;">
-        <div class="footer-note" data-i18n="footer_note">简洁表达，工程优先。</div>
+        <div class="footer-note" data-i18n="footer_note">动手为主，少废话。</div>
     </div>
 
     <script src="main.js"></script>

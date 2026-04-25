@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Lee</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -26,6 +27,7 @@
                 </select>
             </div>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="导航菜单" aria-expanded="false" type="button">&#9776;</button>
     </nav>
 
     <section class="container">
@@ -37,14 +39,18 @@
         <h2 class="section-title" data-i18n="works_title">工程项目集</h2>
         <div class="item-row">
             <h3 data-i18n="p1_title">PolyU Robocon 运动控制架构</h3>
-            <p data-i18n="p1_desc">主导运动控制架构设计。实现多传感器融合定位，提升机械臂响应速度。</p>
+            <p data-i18n="p1_desc">在 Robocon 负责运动控制，做了多传感器融合定位，机械臂响应速度明显快了。</p>
         </div>
         <div class="item-row">
             <h3 data-i18n="p2_title">模块化智能节水阀门</h3>
-            <p data-i18n="p2_desc">基于嵌入式开发。设计了集流量监测与自动控制于一体的硬件系统。</p>
+            <p data-i18n="p2_desc">用嵌入式做了套节水阀门，能自动检测流量并控制阀门，硬件系统从头设计的。</p>
         </div>
     </section>
 
+    <button class="floating-top" id="to-top" title="返回顶部" aria-label="返回顶部" type="button">↑</button>
+    <div class="container" style="padding-top: 0;">
+        <div class="footer-note" data-i18n="footer_note">动手为主，少废话。</div>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

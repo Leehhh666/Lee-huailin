@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background | Lee</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -9,26 +10,41 @@
     <canvas id="bg-canvas"></canvas>
     <nav>
         <div class="logo">LEE<span>(polyu)</span></div>
-        <div class="nav-links">
-            <a href="index.html">首页</a>
-            <a href="projects.html">项目展示集</a>
-            <a href="background.html" class="active">个人背景</a>
-            <a href="about.html">关于我</a>
-            <a href="contact.html">联系我</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="projects.html">项目展示集</a>
+                <a href="background.html" class="active">个人背景</a>
+                <a href="about.html">关于我</a>
+                <a href="contact.html">联系我</a>
+            </div>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="导航菜单" aria-expanded="false" type="button">&#9776;</button>
     </nav>
     <div class="container">
         <h2 class="section-title">ACADEMIC JOURNEY</h2>
-        <div class="item-row">
-            <span class="item-tag">2024 - PRESENT</span>
-            <h3>香港理工大学 (PolyU)</h3>
-            <p>机械工程专业本科在读。作为 PolyU Robotic Club 核心成员，参与多项校级竞赛及研发项目。</p>
+        <div class="item-row reveal">
+            <span class="item-tag">2024 - 至今</span>
+            <h3>香港理工大学（PolyU）</h3>
+            <p>机械工程本科在读。在 PolyU Robotics Club 里参与了不少比赛和项目，主要做运动控制这块。</p>
         </div>
-        <div class="item-row">
-            <span class="item-tag">2026 SEMESTER 2</span>
-            <h3>南洋理工大学 (NTU)</h3>
-            <p>交换生计划。专注研究先进机器人控制理论及智能制造技术。</p>
+        <div class="item-row reveal">
+            <span class="item-tag">2026 下学期</span>
+            <h3>南洋理工大学（NTU）</h3>
+            <p>去 NTU 交流，主要研究机器人控制和智能制造方向。</p>
         </div>
+        <h2 class="section-title" style="margin-top: 48px;">CORE SKILLS</h2>
+        <div class="chips reveal">
+            <span>ROS / C++</span>
+            <span>Python</span>
+            <span>Embedded Systems</span>
+            <span>CAD / SolidWorks</span>
+            <span>Control & Kinematics</span>
+        </div>
+    </div>
+    <button class="floating-top" id="to-top" title="返回顶部" aria-label="返回顶部" type="button">↑</button>
+    <div class="container" style="padding-top: 0;">
+        <div class="footer-note">动手为主，少废话。</div>
     </div>
     <script src="main.js"></script>
 </body>
